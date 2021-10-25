@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:id="@+id/relative1_toolbar_home"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_FFFFFF">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_toolbarforPlainTool"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/color_FFFFFF"
+            android:contentInsetStart="0dp"
+            android:contentInsetLeft="0dp"
+            android:orientation="vertical"
+            app:contentInsetEnd="0dp"
+            app:contentInsetLeft="0dp"
+            app:contentInsetRight="0dp"
+            app:contentInsetStart="0dp">
+
+            <RelativeLayout
+                android:id="@+id/rl_toolbarforPlainTool_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/color_FFFFFF"
+                android:gravity="center_vertical">
+
+
+                <TextView
+                    android:id="@+id/tv_toolbarMain_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:gravity="center_horizontal"
+                    android:text="RDMAP"
+                    android:textAllCaps="true"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textColor="@color/color_000000"
+                    android:textSize="@dimen/_13ssp"
+                    android:visibility="visible" />
+
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerInParent="true"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center_horizontal"
+                    android:paddingEnd="@dimen/_15sdp"
+                    android:paddingRight="@dimen/_15sdp"
+                    android:src="@drawable/filter"
+                    android:visibility="visible" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_toolbarMain_done"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_toStartOf="@+id/iv_filter"
+                    android:layout_toLeftOf="@+id/iv_filter"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center_horizontal"
+                    android:paddingEnd="@dimen/_15sdp"
+                    android:paddingRight="@dimen/_15sdp"
+                    android:text="@string/reset"
+
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/_11ssp"
+                    android:visibility="gone" />
+
+
+            </RelativeLayout>
+        </androidx.appcompat.widget.Toolbar>
+
+        <!--<View-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="@dimen/size_3dp"-->
+        <!--android:id="@+id/view1"-->
+        <!--android:layout_below="@+id/toolbar_toolbarforPlainTool"-->
+        <!--android:background="@drawable/drawable_shadow_top_to_bottom" />-->
+
+    </RelativeLayout>
+
+</layout>

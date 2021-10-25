@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">DevPractical</string>
+    <string name="add">Add Location</string>
+    <string name="show_path">Show Path</string>
+
+    <string name="MAP_KEY">AIzaSyA7Hwqk6gy9upoBLpg2_Cyt-B_qhHMhGfM</string>
+    <string name="reset">Reset</string>
+    <string name="retry">Retry</string>
+    <string name="no_internet_connection">No internet connection!!</string>
+    <string name="nonetwork">No internet connectivity</string>
+    <string name="apply">Apply</string>
+    <string name="filter">Filter</string>
+    <string name="ascending">Ascending</string>
+    <string name="descending">Descending</string>
+    <string name="no_proper_address_found">Sorry , No Proper address found!!</string>
+    <string name="clear">Clear</string>
+
+
+</resources>

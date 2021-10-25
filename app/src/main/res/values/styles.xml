@@ -1,0 +1,68 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+
+    <style name="buttonStyle">
+        <item name="android:textColor">@color/color_000000</item>
+        <item name="android:textSize">@dimen/_11ssp</item>
+        <item name="android:background">@drawable/background_button</item>
+        <item name="android:fontFamily">@font/poppins_bold</item>
+        <item name="android:gravity">center</item>
+         <item name="android:includeFontPadding">false</item>
+    </style>
+
+
+    <!--
+     <style name="cardstyle">
+               <item name="android:gravity">center</item>
+            <item name="android:layout_marginTop">@dimen/_12sdp</item>
+            <item name="android:layout_marginStart">@dimen/_1sdp</item>
+            <item name="android:layout_marginEnd">@dimen/_1sdp</item>
+            <item name="android:elevation">@dimen/_5sdp</item>
+            <item name="android:card">@dimen/_5sdp</item>
+          </style>-->
+
+
+    <style name="normal_txt">
+        <item name="android:textColor">@color/color_52000000</item>
+        <item name="android:textSize">@dimen/_12ssp</item>
+        <item name="android:fontFamily">@font/poppins_light</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar.Bridge">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:statusBarColor" tools:targetApi="lollipop">@android:color/transparent
+        </item>
+        <item name="android:windowEnableSplitTouch">false</item>
+    </style>
+
+
+    <style name="AppThemeBlack" parent="Theme.MaterialComponents.Light.NoActionBar.Bridge">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/black</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowEnableSplitTouch">false</item>
+    </style>
+
+    <style name="AppThemeOffWhite" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimaryDark">@color/color_F5F5F5</item>
+        <item name="android:statusBarColor" tools:targetApi="lollipop">@android:color/transparent
+        </item>
+        <item name="android:windowEnableSplitTouch">false</item>
+    </style>
+
+<!--
+    <color name="color_F5F5F5">#F5F5F5</color>
+    <color name="color_000000">#000000</color>
+    <color name="color_28000000">#28000000</color>
+    <color name="color_FFFFFF">#FFFFFF</color>
+    <color name="color_52000000">#85000000</color>
+    <color name="color_trans_80333333">#80333333</color>
+    <color name="purple_200">#FFBB86FC</color>-->
+
+</resources>
