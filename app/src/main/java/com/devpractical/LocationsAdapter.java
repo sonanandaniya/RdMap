@@ -60,12 +60,12 @@ public class LocationsAdapter extends RecyclerView.Adapter<LocationsAdapter.MyVi
             @Override
             public void onClick(View view) {
 
-                CityData cityData1 = locationList.get(myViewHolder.getAdapterPosition());
-                roomDb.cityDao().delete(cityData1);
                 int pos = myViewHolder.getAdapterPosition();
-                locationList.remove(pos);
-                notifyItemRemoved(pos);
-                notifyItemRangeChanged(pos, locationList.size());
+
+                listener.onClick(-1, myViewHolder.getAdapterPosition(), locationList.get(myViewHolder.getAdapterPosition()));
+
+
+
             }
         });
 

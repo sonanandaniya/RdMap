@@ -69,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+/*
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -98,6 +99,12 @@ public class MainActivity extends AppCompatActivity {
                             double distanceToPlace1 = SortPlaces.distance(lat2, lon2, lat1, lon1);
                             cityData.setDistance(distanceToPlace1);
                             cityData.setStartPoint(locationsList.get(0).getLocationName());
+
+                            if (locationsList != null && locationsList.size() > 0) {
+                                binding.tvShowPath.setVisibility(View.VISIBLE);
+                            } else {
+                                binding.tvShowPath.setVisibility(View.GONE);
+                            }
                         }
                         database.cityDao().insert(cityData);
                         Logger.d("latlng: " + String.valueOf(destlat) + ", " + String.valueOf(destLon));
@@ -174,10 +181,12 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
     }
 
+*/
 
     private void init() {
         database = RoomDb.getInstance(this);
         locationsList = database.cityDao().getAll();
+
         Logger.d("dblistis " + new Gson().toJson(locationsList));
         binding.tvAddLoc.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -291,6 +300,8 @@ public class MainActivity extends AppCompatActivity {
                                             double distanceToPlace1 = SortPlaces.distance(lat2, lon2, lat1, lon1);
                                             cityData.setDistance(distanceToPlace1);
                                             cityData.setStartPoint(locationsList.get(0).getLocationName());
+
+
                                         }
                                         database.cityDao().insert(cityData);
                                         Logger.d("latlng: " + String.valueOf(destlat) + ", " + String.valueOf(destLon));
@@ -299,6 +310,12 @@ public class MainActivity extends AppCompatActivity {
                                         locationsList.clear();
                                         locationsList.addAll(database.cityDao().getAll());
                                         locationsAdapter.notifyDataSetChanged();
+
+                                        if (locationsList != null && locationsList.size() > 0) {
+                                            binding.tvShowPath.setVisibility(View.VISIBLE);
+                                        } else {
+                                            binding.tvShowPath.setVisibility(View.GONE);
+                                        }
 
                                     } else {
                                         Toast.makeText(MainActivity.this, getString(R.string.no_proper_address_found), Toast.LENGTH_SHORT);
@@ -354,6 +371,15 @@ public class MainActivity extends AppCompatActivity {
                                         locationsList.clear();
                                         locationsList.addAll(database.cityDao().getAll());
                                         locationsAdapter.notifyDataSetChanged();
+
+
+
+                                    }
+
+                                    if (locationsList != null && locationsList.size() > 0) {
+                                        binding.tvShowPath.setVisibility(View.VISIBLE);
+                                    } else {
+                                        binding.tvShowPath.setVisibility(View.GONE);
                                     }
 
                                 } else {
@@ -379,17 +405,39 @@ public class MainActivity extends AppCompatActivity {
 
     private void setRecyclerView() {
 
+        if (locationsList != null && locationsList.size() > 0) {
+            binding.tvShowPath.setVisibility(View.VISIBLE);
+        } else {
+            binding.tvShowPath.setVisibility(View.GONE);
+        }
         linearLayoutManager = new LinearLayoutManager(this);
         binding.rvCityListing.setLayoutManager(linearLayoutManager);
         locationsAdapter = new LocationsAdapter(MainActivity.this, locationsList, new LocationsAdapter.RecyclerViewClickListener() {
             @Override
             public void onClick(int tag, int pos, Object data) {
-                aId = tag;
-                List<Place.Field> fields = Arrays.asList(Place.Field.ID, Place.Field.NAME, Place.Field.LAT_LNG);
+                if (tag == -1) {
 
-                Intent intent = new Autocomplete.IntentBuilder(AutocompleteActivityMode.FULLSCREEN, fields)
-                        .build(MainActivity.this);
-                ActivityResultLauncher2.launch(intent);
+
+                    CityData cityData1 = locationsList.get(pos);
+                    database.cityDao().delete(cityData1);
+                    locationsList.remove(pos);
+                    locationsAdapter.notifyItemRemoved(pos);
+                    locationsAdapter.notifyItemRangeChanged(pos, locationsList.size());
+                    if (locationsList != null && locationsList.size() > 0) {
+                        binding.tvShowPath.setVisibility(View.VISIBLE);
+                    } else {
+                        binding.tvShowPath.setVisibility(View.GONE);
+                    }
+
+                } else {
+                    aId = tag;
+                    List<Place.Field> fields = Arrays.asList(Place.Field.ID, Place.Field.NAME, Place.Field.LAT_LNG);
+
+                    Intent intent = new Autocomplete.IntentBuilder(AutocompleteActivityMode.FULLSCREEN, fields)
+                            .build(MainActivity.this);
+                    ActivityResultLauncher2.launch(intent);
+                }
+
             }
         });
 
